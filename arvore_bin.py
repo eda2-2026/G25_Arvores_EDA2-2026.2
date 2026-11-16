@@ -33,6 +33,49 @@ class Arvore:
         else:
             self.compara(self.root, no)
         return    
+
+    #-------------------------------------------------------
+    
+    def busca(self, no_atual: No, valor):
+                if(no_atual == None):
+                    print ("Dado inexistente")
+                    return False
+                elif(no_atual.chave > valor):
+                    if(no_atual.left == None):
+                        print ("Dado inexistente")
+                        return False
+                    else: 
+                        self.busca(no_atual.left, valor)
+                elif(no_atual.chave < valor):
+                    if(no_atual.right == None):
+                        print ("Dado inexistente")
+                        return False
+                    self.busca(no_atual.right, valor)
+                else:
+                    print("Encontrado")
+                    return True              
+                return     
+    
+    def delete(self, no: No, valor):
+        if(self.busca(no, valor)):
+            if(no.right == None and no.left == None):
+                
+           
+            
+
+
+    def left_rotate(self, node):
+        pass
+
+    def right_rotate(self, node):
+        pass
+
+    def fix_insert(self, node):
+        pass
+
+    def fix_delete(self, node):
+        pass
+
         
 arvore = Arvore()
 
@@ -44,4 +87,6 @@ print(arvore.root.right.chave)
 print(arvore.root.left.chave)
 print(arvore.root.left.left.chave)
 print(arvore.root.left.right.chave)
+
+arvore.busca(arvore.root, 777)
     
