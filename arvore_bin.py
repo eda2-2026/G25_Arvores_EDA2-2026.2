@@ -87,6 +87,11 @@ class Arvore:
         if no == False or no == None:
             return False
 
+        self.remover_no(no)
+        return True
+
+    def remover_no(self, no):
+
         # Não possui filho esquerdo
         if no.left == None:
             self.transplantar(no, no.right)
@@ -113,6 +118,37 @@ class Arvore:
             sucessor.left.pai = sucessor
 
         return True
+
+    def buscar_jogador(self, no_atual, nome):
+        if no_atual == None:
+            return None
+        if no_atual.jogador == nome:
+            return no_atual
+
+        achou = self.buscar_jogador(no_atual.left, nome)
+        if achou != None:
+            return achou
+        return self.buscar_jogador(no_atual.right, nome)
+
+    def remover_jogador(self, nome):
+        no = self.buscar_jogador(self.root, nome)
+        if no == None:
+            return False
+        self.remover_no(no)
+        return True
+
+    def para_dict(self):
+        return self._no_para_dict(self.root)
+
+    def _no_para_dict(self, no):
+        if no == None:
+            return None
+        return {
+            "jogador": no.jogador,
+            "gols": no.gols,
+            "left": self._no_para_dict(no.left),
+            "right": self._no_para_dict(no.right),
+        }
     
     #---------------------------------------------------------------------------------                            
 
