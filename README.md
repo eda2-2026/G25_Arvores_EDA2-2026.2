@@ -3,6 +3,10 @@
 Árvore binária de busca de jogadores, ordenada pelo número de gols.
 Quem tem menos gols fica à esquerda. Quem tem mais gols, ou a mesma quantidade, fica à direita.
 
+
+## Link de Apresentação do Trabalho
+[Clique aqui](https://youtu.be/fmLkaxLuH68)
+
 ## Visualização
 
 ```bash
