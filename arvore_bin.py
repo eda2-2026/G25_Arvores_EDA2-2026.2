@@ -1,7 +1,8 @@
 class No:
-    def __init__(self, chave):
-        self.chave = chave
-        
+    def __init__(self, jogador, gols):
+        self.jogador = jogador
+        self.gols = gols
+
         self.right = None
         self.left = None
         self.pai = None
@@ -14,14 +15,14 @@ class Arvore:
     
         
     def compara(self, no_atual: No, no_novo:No):
-            if(no_atual.chave > no_novo.chave ):
+            if(no_atual.gols > no_novo.gols ):
                 if(no_atual.left == None):
                     no_novo.pai = no_atual 
                     no_atual.left = no_novo
                     return
                 else: 
                     self.compara(no_atual.left, no_novo)
-            elif(no_atual.chave <= no_novo.chave ):
+            elif(no_atual.gols <= no_novo.gols ):
                 if(no_atual.right == None):
                     no_novo.pai = no_atual
                     no_atual.right = no_novo
@@ -43,13 +44,13 @@ class Arvore:
                 if(no_atual == None):
                     print ("Dado inexistente")
                     return False
-                elif(no_atual.chave > valor):
+                elif(no_atual.gols > valor):
                     if(no_atual.left == None):
                         print ("Dado inexistente")
                         return False
                     else: 
                         return self.busca(no_atual.left, valor)
-                elif(no_atual.chave < valor):
+                elif(no_atual.gols < valor):
                     if(no_atual.right == None):
                         print ("Dado inexistente")
                         return False
