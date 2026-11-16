@@ -116,9 +116,53 @@ class Arvore:
     #---------------------------------------------------------------------------------                            
 
     def left_rotate(self, node):
-        pass
+        # y sobe e node vira filho esquerdo de y
+        y = node.right
+
+        if y == None:
+            return False
+
+        node.right = y.left
+
+        if y.left != None:
+            y.left.pai = node
+
+        y.pai = node.pai
+
+        if node.pai == None:
+            self.root = y
+        elif node == node.pai.left:
+            node.pai.left = y
+        else:
+            node.pai.right = y
+
+        y.left = node
+        node.pai = y
+        return True
 
     def right_rotate(self, node):
-        pass
+        # x sobe e node vira filho direito de x
+        x = node.left
+
+        if x == None:
+            return False
+
+        node.left = x.right
+
+        if x.right != None:
+            x.right.pai = node
+
+        x.pai = node.pai
+
+        if node.pai == None:
+            self.root = x
+        elif node == node.pai.right:
+            node.pai.right = x
+        else:
+            node.pai.left = x
+
+        x.right = node
+        node.pai = x
+        return True
 
     
