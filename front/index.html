@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Árvore de jogadores</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <p class="materia">EDA2 · Árvore binária de busca</p>
+      <h1>Jogadores ordenados por gols</h1>
+    </div>
+    <p id="aviso" class="aviso" role="status"></p>
+  </header>
+
+  <main>
+    <section class="painel">
+      <h2>Inserir</h2>
+      <form id="form-inserir">
+        <label>
+          Jogador
+          <input name="jogador" required maxlength="22" placeholder="Ex.: Neymar" autocomplete="off">
+        </label>
+        <label>
+          Gols
+          <input name="gols" type="number" min="0" step="1" required placeholder="Ex.: 12">
+        </label>
+        <button type="submit">Inserir na árvore</button>
+      </form>
+
+      <h2>Buscar por gols</h2>
+      <form id="form-buscar">
+        <label>
+          Gols
+          <input name="gols" type="number" min="0" step="1" required placeholder="18">
+        </label>
+        <button type="submit" class="secundario">Buscar</button>
+      </form>
+
+      <h2>Nó selecionado</h2>
+      <p id="selecionado" class="selecionado vazio">Clique em um jogador na árvore.</p>
+      <div class="acoes">
+        <button id="rot-esq" type="button" disabled>Rotacionar à esquerda</button>
+        <button id="rot-dir" type="button" disabled>Rotacionar à direita</button>
+        <button id="remover" type="button" class="perigo" disabled>Remover</button>
+      </div>
+
+      <div class="acoes bloco">
+        <button id="exemplo" type="button" class="secundario">Carregar exemplo</button>
+        <button id="limpar" type="button" class="secundario">Limpar árvore</button>
+      </div>
+    </section>
+
+    <section class="palco">
+      <div class="palco-topo">
+        <h2>Árvore</h2>
+        <p>Menos gols fica à esquerda. Mais gols, ou a mesma quantidade, fica à direita. A rotação muda o formato e mantém essa ordem.</p>
+      </div>
+      <div id="arvore" class="arvore"></div>
+      <p id="em-ordem" class="em-ordem"></p>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
